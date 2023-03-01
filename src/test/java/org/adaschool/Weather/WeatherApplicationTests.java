@@ -26,11 +26,6 @@ class WeatherApplicationTests {
 	@Test
 	public void getWeatherReportTest() {
 		WeatherReport weatherReport = new WeatherReport();
-		WeatherApiResponse.Main main = new WeatherApiResponse.Main();
-		main.setHumidity(89.0);
-		main.setTemperature(0.0);
-		weatherReport.setHumidity(main.getHumidity());
-		weatherReport.setTemperature(main.getTemperature());
 		Mockito.when(weatherReportController.getWeatherReport(37.8267,-122.4233)).thenReturn(weatherReport);
 		final WeatherReport weatherReportRes = weatherReportController.getWeatherReport(37.8267,-122.4233);
 		Assertions.assertEquals(weatherReport.getHumidity(),weatherReportRes.getHumidity());
